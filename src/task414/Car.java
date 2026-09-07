@@ -81,6 +81,7 @@ public class Car implements Rentable {
         }
     }
 
+    // modelYear has no setter because it identifies the manufactured model year and should not change after creation.
     public int getModelYear() {
         return modelYear;
     }
