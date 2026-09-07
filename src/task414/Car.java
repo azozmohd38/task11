@@ -4,7 +4,9 @@ public class Car implements Rentable {
     private String plateNumber = "UNKNOWN";
     private double dailyRate;
     private int seats;
-    private final int modelYear; // Read-only field (getter, no setter)
+    private final int modelYear;
+    private int rentalDays = 1;
+    private boolean rentalDaysValid = true;
 
     public Car(String plateNumber, double dailyRate, int seats, int modelYear) {
         this.modelYear = modelYear;
@@ -13,7 +15,6 @@ public class Car implements Rentable {
         setSeats(seats);
     }
 
-    // Rentable Interface Implementation
     @Override
     public void printAllInfo() {
         System.out.println("Car | Plate: " + plateNumber + " | Seats: " + seats +
@@ -22,24 +23,22 @@ public class Car implements Rentable {
 
     @Override
     public double costFor(int days) {
-        if (days < 1 || days > 30) {
-            System.out.println("Rental days must be between 1 and 30.");
+        setRentalDays(days);
+        if (!rentalDaysValid) {
             return 0.0;
         }
-        // Requirement: Cars add a fixed insurance fee of 5.000
-        return (dailyRate * days) + 5.000;
+        return (dailyRate * rentalDays) + 5.000;
     }
 
-    // Getters and Setters with Validation Rules
     public String getPlateNumber() {
         return plateNumber;
     }
 
     public void setPlateNumber(String plateNumber) {
         if (plateNumber == null || plateNumber.trim().isEmpty()) {
-            IO.println("Plate number must not be empty.");
+            IO.println("Plate number must not be empty");
         } else {
-            this.plateNumber = plateNumber;
+            this.plateNumber = plateNumber.trim();
         }
     }
 
@@ -49,7 +48,7 @@ public class Car implements Rentable {
 
     public void setDailyRate(double dailyRate) {
         if (dailyRate <= 0 || dailyRate > 200) {
-            IO.println("Daily rate must be above 0 and not more than 200.");
+            IO.println("Daily rate must be above 0 and not more than 200");
         } else {
             this.dailyRate = dailyRate;
         }
@@ -61,12 +60,26 @@ public class Car implements Rentable {
 
     public void setSeats(int seats) {
         if (seats < 2 || seats > 7) {
-            System.out.println("A car must have between 2 and 7 seats.");
+            System.out.println("A car must have between 2 and 7 seats");
         } else {
             this.seats = seats;
         }
     }
 
+
+    public int getRentalDays() {
+        return rentalDays;
+    }
+
+    public void setRentalDays(int rentalDays) {
+        if (rentalDays < 1 || rentalDays > 30) {
+            rentalDaysValid = false;
+            System.out.println("Rental days must be from 1 to 30");
+        } else {
+            this.rentalDays = rentalDays;
+            rentalDaysValid = true;
+        }
+    }
 
     public int getModelYear() {
         return modelYear;
