@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
     public class Main1 {
-        private List<LibraryItem1> catalogue = new ArrayList<>();
+        private List<LibraryItem> catalogue = new ArrayList<>();
         private Scanner scanner = new Scanner(System.in);
 
         public static void main(String[] args) {
@@ -33,7 +33,7 @@ import java.util.Scanner;
                 IO.print("Choose: ");
 
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Clear newline character from buffer
+                scanner.nextLine();
 
                 switch (choice) {
                     case 1:
@@ -71,7 +71,7 @@ import java.util.Scanner;
 
             System.out.print("Enter pages: ");
             book.setPages(scanner.nextInt());
-            scanner.nextLine(); // Clear buffer
+            scanner.nextLine();
 
             return book;
         }
@@ -94,7 +94,7 @@ import java.util.Scanner;
 
         private void printAllItems() {
             int index = 1;
-            for (LibraryItem1 item : catalogue) {
+            for (LibraryItem item : catalogue) {
                 System.out.print(index++ + ". ");
                 item.printAllInfo();
             }
