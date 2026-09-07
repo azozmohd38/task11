@@ -9,14 +9,18 @@ public class Main {
     private Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Main app = new Main();
-        app.setupInitialMember();
-        app.runMenu();
+        new Main().start();
+    }
+
+    private void start() {
+        setupInitialMember();
+        testRules();
+        runMenu();
     }
 
     private void setupInitialMember() {
         System.out.println("--- Single item created at startup ---");
-        MonthlyMember initialMember = new MonthlyMember(101, "Ahmad Al-Busaidi", 12, 35.0); // Age 12 triggers "Too young to register."
+        MonthlyMember initialMember = new MonthlyMember(101, "Ahmad Al-Busaidi", 12, 35.0);
         initialMember.printAllInfo();
         members.add(initialMember);
     }
@@ -34,7 +38,7 @@ public class Main {
             IO.print("Choose option: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Clear scanner buffer
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -67,7 +71,7 @@ public class Main {
     private MonthlyMember addMonthlyMember() {
         System.out.print("Enter Membership ID: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
 
         System.out.print("Enter Member Name: ");
         String name = scanner.nextLine();
@@ -77,7 +81,7 @@ public class Main {
 
         System.out.print("Enter Monthly Fee (OMR): ");
         double fee = scanner.nextDouble();
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
 
         return new MonthlyMember(id, name, age, fee);
     }
@@ -85,7 +89,7 @@ public class Main {
     private DayPassVisitor addDayPassVisitor() {
         System.out.print("Enter Membership ID: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
 
         System.out.print("Enter Member Name: ");
         String name = scanner.nextLine();
@@ -98,7 +102,7 @@ public class Main {
 
         System.out.print("Enter Number of Visits (1-31): ");
         int visits = scanner.nextInt();
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
 
         return new DayPassVisitor(id, name, age, price, visits);
     }
