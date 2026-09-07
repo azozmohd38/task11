@@ -26,6 +26,14 @@ public class Main {
         members.add(initialMember);
     }
 
+    private void testRules() {
+        MonthlyMember monthly = new MonthlyMember(-1, "A", 13, 600);
+        monthly.setMemberId(200);
+
+        DayPassVisitor visitor = new DayPassVisitor(0, "", 91, 0, 40);
+        visitor.setMemberId(300);
+    }
+
     private void runMenu() {
         boolean exit = false;
         while (!exit) {
