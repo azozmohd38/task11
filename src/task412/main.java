@@ -34,7 +34,7 @@ public class main {
             switch (choice) {
                 case 1:
                     stock.add(addProduct());
-                    IO.println("Added.");
+                     IO.println("Added.");
                     break;
                 case 2:
                     stock.add(addService());
@@ -51,7 +51,7 @@ public class main {
                     IO.println("Goodbye.");
                     break;
                 default:
-                   IO.println("Invalid choice.");
+                    IO.println("Invalid choice.");
             }
         }
     }
@@ -65,7 +65,7 @@ public class main {
 
         System.out.print("Enter quantity: ");
         int quantity = scanner.nextInt();
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
 
         return new Product(name, price, quantity);
     }
