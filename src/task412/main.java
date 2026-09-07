@@ -21,6 +21,18 @@ public class main {
         stock.add(initialProduct);
     }
 
+    private void testValidationRules() {
+        Product product = new Product("Soap", 2.500, 5);
+        product.setName(" ");
+        product.setPrice(10001);
+        product.setQuantity(0);
+
+        Service service = new Service("Printing", 1.000, 10);
+        service.setName(" ");
+        service.setPrice(-1);
+        service.setMinutes(0);
+    }
+
     private void runMenu() {
         boolean exit = false;
         while (!exit) {
