@@ -9,9 +9,12 @@ public class Main {
     private Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Main app = new Main();
-        app.setupInitialPatient();
-        app.runMenu();
+        new Main().start();
+    }
+
+    private void start() {
+        setupInitialPatient();
+        runMenu();
     }
 
     private void setupInitialPatient() {
