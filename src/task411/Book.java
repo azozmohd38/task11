@@ -45,7 +45,7 @@ public class Book implements LibraryItem1 {
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+        this.author = author == null ? "Unknown" : author.trim();
     }
 
     public int getPages() {
