@@ -18,10 +18,10 @@ public class Main {
     }
 
     private void setupInitialPatient() {
-        IO.println("--- Single item created at startup... ---");
+        IO.println("--- Single item created at startup ---");
         BookedPatient initialPatient = new BookedPatient("09:30");
         initialPatient.setName("Sarah Bennett");
-        initialPatient.setAge(150); // Intentionally invalid age to test rule (prints "Invalid age")
+        initialPatient.setAge(150);
         initialPatient.printAllInfo();
         queue.add(initialPatient);
     }
@@ -72,7 +72,7 @@ public class Main {
 
         System.out.print("Enter age: ");
         patient.setAge(scanner.nextInt());
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
 
         return patient;
     }
@@ -88,7 +88,7 @@ public class Main {
 
         System.out.print("Enter arrival order: ");
         visitor.setArrivalOrder(scanner.nextInt());
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
 
         return visitor;
     }
