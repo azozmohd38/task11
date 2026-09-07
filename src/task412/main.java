@@ -111,4 +111,8 @@ public class main {
         }
         System.out.printf("Total value of stock: %.2f OMR\n", totalValue);
     }
+
+    public void runValidationChecks() {
+        testValidationRules();
+    }
 }
