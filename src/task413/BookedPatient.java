@@ -7,26 +7,27 @@ public class BookedPatient implements Attendable {
 
     public BookedPatient(String slotTime) {
         this.slotTime = slotTime;
-}
+    }
 
     @Override
     public void printAllInfo() {
-        System.out.println("[Booked] " + name + ", age " + age + ", slot " + slotTime + ", waits " + getWaitMinutes() + " min");
-}
+        System.out.println("[Booked] " + name + ", age " + age + ", slot " + slotTime
+                + ", waits " + getWaitMinutes() + " min");
+    }
 
     @Override
     public String getPriority() {
         return "Booked";
-}
+    }
 
     @Override
     public int getWaitMinutes() {
         return 10;
-}
+    }
 
     public String getName() {
         return name;
-}
+    }
 
     public void setName(String name) {
         if (name == null || name.trim().isEmpty()) {
@@ -34,11 +35,11 @@ public class BookedPatient implements Attendable {
         } else {
             this.name = name.trim();
         }
-}
+    }
 
     public int getAge() {
         return age;
-}
+    }
 
     public void setAge(int age) {
         if (age < 0 || age > 120) {
@@ -46,10 +47,9 @@ public class BookedPatient implements Attendable {
         } else {
             this.age = age;
         }
-}
+    }
 
     public String getSlotTime() {
         return slotTime;
+    }
 }
-}
-
