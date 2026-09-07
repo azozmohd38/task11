@@ -1,6 +1,6 @@
 package task411;
 
-public class Book implements LibraryItem1 {
+public class Book implements LibraryItem {
     private String title = "Untitled";
     private String author = "Unknown";
     private int pages;
