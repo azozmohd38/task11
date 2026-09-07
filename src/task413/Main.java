@@ -115,9 +115,12 @@ public class Main {
         }
 
 
-        String name = (longestPerson instanceof BookedPatient)
-                ? ((BookedPatient) longestPerson).getName()
-                : ((WalkInVisitor) longestPerson).getName();
+        String name;
+        if (longestPerson instanceof BookedPatient) {
+            name = ((BookedPatient) longestPerson).getName();
+        } else {
+            name = ((WalkInVisitor) longestPerson).getName();
+        }
 
         IO.println("Longest wait: " + name + " (" + longestPerson.getWaitMinutes() + " min)");
     }
