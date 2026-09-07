@@ -9,9 +9,13 @@ public class main {
     private Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        main app = new main();
-        app.setupInitialProduct();
-        app.runMenu();
+        new main().start();
+    }
+
+    private void start() {
+        setupInitialProduct();
+        testValidationRules();
+        runMenu();
     }
 
     private void setupInitialProduct() {
@@ -112,7 +116,4 @@ public class main {
         System.out.printf("Total value of stock: %.2f OMR\n", totalValue);
     }
 
-    public void runValidationChecks() {
-        testValidationRules();
-    }
 }
