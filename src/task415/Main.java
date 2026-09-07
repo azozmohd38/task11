@@ -137,7 +137,7 @@ public class Main {
         boolean found = false;
         for (Payable member : members) {
 
-            if (member.getMemberName().equalsIgnoreCase(searchName)) {
+            if (member.getMemberName().equals(searchName)) {
                IO.print("Member Found -> ");
                 member.printAllInfo();
                 found = true;
