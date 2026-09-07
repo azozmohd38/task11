@@ -110,11 +110,6 @@ public class Main {
         System.out.print("Enter duration of rental in days (1-30): ");
         int days = scanner.nextInt();
 
-        if (days < 1 || days > 30) {
-            IO.println("Rental days must be from 1 to 30.");
-            return;
-        }
-
         double totalIncome = 0;
         for (Rentable vehicle : rentals) {
 
