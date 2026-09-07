@@ -4,7 +4,9 @@ public class Motorbike implements Rentable {
     private String plateNumber = "UNKNOWN";
     private double dailyRate;
     private int engineSize;
-    private final String VIN; // Read-only field (getter, no setter)
+    private final String VIN;
+    private int rentalDays = 1;
+    private boolean rentalDaysValid = true;
 
     public Motorbike(String plateNumber, double dailyRate, int engineSize, String VIN) {
         this.VIN = VIN;
@@ -13,7 +15,6 @@ public class Motorbike implements Rentable {
         setEngineSize(engineSize);
     }
 
-    // Rentable Interface Implementation
     @Override
     public void printAllInfo() {
         IO.println("Motorbike | Plate: " + plateNumber + " | Engine: " + engineSize +
@@ -22,12 +23,11 @@ public class Motorbike implements Rentable {
 
     @Override
     public double costFor(int days) {
-        if (days < 1 || days > 30) {
-            IO.println("Rental days must be between 1 and 30.");
+        setRentalDays(days);
+        if (!rentalDaysValid) {
             return 0.0;
         }
-
-        return dailyRate * days;
+        return dailyRate * rentalDays;
     }
 
 
@@ -37,9 +37,9 @@ public class Motorbike implements Rentable {
 
     public void setPlateNumber(String plateNumber) {
         if (plateNumber == null || plateNumber.trim().isEmpty()) {
-            IO.println("Plate number must not be empty.");
+            IO.println("Plate number must not be empty");
         } else {
-            this.plateNumber = plateNumber;
+            this.plateNumber = plateNumber.trim();
         }
     }
 
@@ -49,7 +49,7 @@ public class Motorbike implements Rentable {
 
     public void setDailyRate(double dailyRate) {
         if (dailyRate <= 0 || dailyRate > 200) {
-            IO.println("Daily rate must be above 0 and not more than 200.");
+            IO.println("Daily rate must be above 0 and not more than 200");
         } else {
             this.dailyRate = dailyRate;
         }
@@ -61,13 +61,28 @@ public class Motorbike implements Rentable {
 
     public void setEngineSize(int engineSize) {
         if (engineSize < 50 || engineSize > 1500) {
-            IO.println("A motorbike must have an engine size between 50 and 1500 cc.");
+            IO.println("A motorbike must have an engine size between 50 and 1500 cc");
         } else {
             this.engineSize = engineSize;
         }
     }
 
 
+    public int getRentalDays() {
+        return rentalDays;
+    }
+
+    public void setRentalDays(int rentalDays) {
+        if (rentalDays < 1 || rentalDays > 30) {
+            rentalDaysValid = false;
+            IO.println("Rental days must be from 1 to 30");
+        } else {
+            this.rentalDays = rentalDays;
+            rentalDaysValid = true;
+        }
+    }
+
+    // VIN has no setter because it uniquely identifies the motorbike and must remain unchanged after creation.
     public String getVIN() {
         return VIN;
     }
