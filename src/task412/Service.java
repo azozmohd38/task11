@@ -13,10 +13,9 @@ public class Service implements Sellable {
         setMinutes(minutes);
     }
 
-    // Sellable Interface Implementation
     @Override
     public void printAllInfo() {
-        System.out.printf("[Service] %s | %.2f OMR | %d min.\n", name, price, minutes);
+        System.out.printf("[Service] %s | %.2f OMR | %d min\n", name, price, minutes);
     }
 
     @Override
@@ -24,14 +23,13 @@ public class Service implements Sellable {
         return "Service";
     }
 
-    // Getters and Setters with Validation Rules
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         if (name == null || name.trim().isEmpty()) {
-            IO.println("Name cannot be empty.");
+            IO.println("Name cannot be empty");
         } else {
             this.name = name.trim();
         }
@@ -43,7 +41,7 @@ public class Service implements Sellable {
 
     public void setPrice(double price) {
         if (price < 0 || price > 10000) {
-            IO.println("Price out of range.");
+            IO.println("Price out of range");
         } else {
             this.price = price;
         }
