@@ -132,7 +132,6 @@ public class Main {
     private void showTotalMonthlyIncome() {
         double totalIncome = 0.0;
         for (Payable member : members) {
-
             totalIncome += member.monthlyTotal();
         }
         System.out.printf("Total anticipated monthly income: %.3f OMR\n", totalIncome);
