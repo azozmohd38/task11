@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+// if memberName was public, someone could put an empty name and skip the setter rule.
 public class Main {
     private List<Payable> members = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
