@@ -15,7 +15,7 @@ import java.util.Scanner;
         }
 
         private void setupInitialItem() {
-            IO.println("Single item created at startup");
+            IO.println("--- Single item created at startup ---");
             Book firstBook = new Book();
             firstBook.setTitle("Clean Code");
             firstBook.setAuthor("Robert Martin");
