@@ -25,6 +25,7 @@ public class Main {
 
         Car initialCar = new Car("", 25.0, 5, 2022);
         initialCar.printAllInfo();
+        initialCar.setRentalDays(31);
         rentals.add(initialCar);
     }
 
