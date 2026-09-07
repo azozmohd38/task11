@@ -5,20 +5,25 @@ import java.util.List;
 import java.util.Scanner;
 
 
+// Abstraction is provided by the Rentable interface, which lets the menu work with cars and motorbikes the same way.
+// Encapsulation is provided by private fields whose values are controlled through getters and validating setters.
 public class Main {
     private List<Rentable> rentals = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Main app = new Main();
-        app.setupInitialData();
-        app.runMenu();
+        new Main().start();
+    }
+
+    private void start() {
+        setupInitialData();
+        runMenu();
     }
 
     private void setupInitialData() {
         IO.println("--- Single item created at startup ---");
 
-        Car initialCar = new Car("", 25.0, 5, 2022); // Empty plate tests validation
+        Car initialCar = new Car("", 25.0, 5, 2022);
         initialCar.printAllInfo();
         rentals.add(initialCar);
     }
@@ -35,7 +40,7 @@ public class Main {
             IO.print("Choose option: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Clear buffer
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -71,7 +76,7 @@ public class Main {
         int seats = scanner.nextInt();
         System.out.print("Enter model year: ");
         int year = scanner.nextInt();
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
 
         return new Car(plate, rate, seats, year);
     }
@@ -83,7 +88,7 @@ public class Main {
         double rate = scanner.nextDouble();
         System.out.print("Enter engine size (cc): ");
         int engine = scanner.nextInt();
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
         System.out.print("Enter VIN: ");
         String vin = scanner.nextLine();
 
