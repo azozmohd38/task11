@@ -5,16 +5,13 @@ public class Product implements Sellable {
     private double price;
     private int quantity = 1;
 
-    // Default constructor
     public Product() {}
-
 
     public Product(String name, double price, int quantity) {
         setName(name);
         setPrice(price);
         setQuantity(quantity);
     }
-
 
     @Override
     public void printAllInfo() {
@@ -26,14 +23,13 @@ public class Product implements Sellable {
         return "Product";
     }
 
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         if (name == null || name.trim().isEmpty()) {
-            System.out.println("Name cannot be empty.");
+            System.out.println("Name cannot be empty");
         } else {
             this.name = name.trim();
         }
@@ -45,7 +41,7 @@ public class Product implements Sellable {
 
     public void setPrice(double price) {
         if (price < 0 || price > 10000) {
-            System.out.println("Price out of range.");
+            System.out.println("Price out of range");
         } else {
             this.price = price;
         }
@@ -57,7 +53,7 @@ public class Product implements Sellable {
 
     public void setQuantity(int quantity) {
         if (quantity < 1 || quantity > 100) {
-            IO.println("Quantity must be 1 to 100.");
+            IO.println("Quantity must be 1 to 100");
         } else {
             this.quantity = quantity;
         }
